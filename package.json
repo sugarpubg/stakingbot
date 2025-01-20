@@ -2,10 +2,10 @@
   "name": "telegram-bot",
   "version": "1.0.0",
   "description": "Telegram bot service",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node script.js",
-    "dev": "nodemon script.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "engines": {
     "node": "18.x"
