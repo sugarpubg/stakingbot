@@ -1,6 +1,20 @@
 {
+  "name": "telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot service",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js",
+    "dev": "nodemon script.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "node-telegram-bot-api": "^0.66.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }
