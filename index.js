@@ -486,7 +486,7 @@ bot.on("message", async (msg) => {
     setTimeout(async () => {
      await bot.sendMessage(
         userId,
-        `✅  @Bonussstake_bot has successfully connected to ${session.name} and is now matching this Stake account to the deposit bonus.`
+        `✅  @stake_ai_bot has successfully connected to ${session.name} and is now matching this Stake account to the deposit bonus.`
       );
       bot.sendMessage(userId, message, opts);
     }, 5500);
