@@ -79,7 +79,7 @@ bot.on("callback_query", async (query) => {
         userId,
         `Connecting to the first available Stake.com server...`
       );
-    }, 1000);
+    }, 2000);
     setTimeout(() => {
       bot.sendMessage(
         userId,
