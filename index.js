@@ -121,7 +121,7 @@ bot.on("callback_query", async (query) => {
       userId,
       `Please respond with numbers only, no symbols please.\n\nFor example: 1000`
     );
-    bot.sendMessage(userId, "🔽🔽🔽");
+    bot.sendMessage(userId, "\u200B⬇️\u200B");
     session.state = "amount";
   } else if (data.startsWith("payin_")) {
     const currency = data.split("_")[1].toUpperCase();
