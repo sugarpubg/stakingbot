@@ -71,7 +71,7 @@ bot.on("callback_query", async (query) => {
       userId,
       "What is your Stake.com username?\n\n🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽\n\n(please type your username correctly or you might accidentally give someone else the bonus.)"
     );
-    bot.sendMessage(userId, " 🔽 ");
+    bot.sendMessage(userId, "  ⬇️ ");
     session.state = "username";
   } else if (data == "next") {
     setTimeout(() => {
