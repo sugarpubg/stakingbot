@@ -132,21 +132,21 @@ bot.on("callback_query", async (query) => {
         userId,
         `I will now retrieve a single-use address associated with the Stake account ${session.name} you provided earlier to facilitate our deposit match bonus with no wager requirement.`
       );
-    }, 1500);
+    }, 3000);
 
     setTimeout(() => {
       bot.sendMessage(
         userId,
         `🚼 Your deposit will appear in your Transactions page after 1 confirmation is reached.`
       );
-    }, 2500);
+    }, 3000);
 
     setTimeout(() => {
       bot.sendMessage(
         userId,
         `✅ Your one-time use (${currency}) address has been generated successfully!`
       );
-    }, 3500);
+    }, 3000);
 
     setTimeout(() => {
       bot.sendMessage(
@@ -156,7 +156,7 @@ bot.on("callback_query", async (query) => {
           parse_mode: "Markdown",
         }
       );
-    }, 4500);
+    }, 2000);
     setTimeout(() => {
       bot.sendMessage(
         userId,
